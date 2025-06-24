@@ -2258,6 +2258,32 @@ button:disabled,
 }
 
 
+/*Menssagem de Kokies*/
+#cookie-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #eee;
+  padding: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  z-index: 10000;
+}
+
+#cookie-banner button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background: #00c4cc;
+  color: #fff;
+  border-radius: 3px;
+}
+
+
 
   
 
