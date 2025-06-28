@@ -1,57 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Lista de conteúdos do index.html que serão indexados
-    const posts = [
-      {
-        title: "Missões (Quase) Secretas",
-        url: "index.html#missoes",
-        content: `
-          Ferramentas experimentais, recursos em teste e funcionalidades ocultas 
-          do sistema. Aqui você encontra módulos em desenvolvimento, ideias em fase 
-          beta, elementos escondidos e utilidades alternativas que ainda não foram lançadas.`
-      },
-      {
-        title: "Funções Ativadas",
-        url: "index.html#funcoes",
-        content: "Veja todos os módulos e componentes atualmente em uso no sistema, com descrições simples e acessíveis."
-      },
-      {
-        title: "Logs do Sistema",
-        url: "index.html#banner",
-        content: "Acompanhe os registros, eventos e atividades mais recentes da plataforma digital personalizada."
-      }
-    ];
-  
-    // Obtém o parâmetro de busca da URL (?q=...)
+document.addEventListener("DOMContentLoaded", async () => {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("q")?.toLowerCase().trim() || "";
   
-    // Atualiza visualmente o termo de busca
     const queryTerm = document.getElementById("queryTerm");
-    if (queryTerm) queryTerm.textContent = query;
-  
-    // Container onde os resultados serão exibidos
     const resultsDiv = document.getElementById("results");
-    if (!resultsDiv) return;
+    if (queryTerm) queryTerm.textContent = query;
+    if (!resultsDiv || !query) return;
   
-    // Filtra os posts com base no termo buscado
-    const filtered = posts.filter(post =>
-      post.title.toLowerCase().includes(query) ||
-      post.content.toLowerCase().includes(query)
-    );
+    try {
+      // Carrega o conteúdo bruto do index.html
+      const response = await fetch("index.html");
+      const htmlText = await response.text();
   
-    // Renderiza os resultados ou mensagem de "nenhum resultado"
-    if (filtered.length === 0) {
-      resultsDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
-    } else {
-      filtered.forEach(post => {
-        const div = document.createElement("div");
-        div.className = "result";
-        div.innerHTML = `
-          <h3><a href="${post.url}">${post.title}</a></h3>
-          <p>${post.content}</p>
-        `;
-        resultsDiv.appendChild(div);
+      // Cria DOM temporário para trabalhar com os elementos
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, "text/html");
+  
+      // Seleciona os artigos da seção #missoes
+      const articles = doc.querySelectorAll("#missoes article");
+  
+      // Filtra pelo texto do título e parágrafo
+      const matches = Array.from(articles).filter(article => {
+        const title = article.querySelector("h3")?.textContent.toLowerCase() || "";
+        const content = article.querySelector("p")?.textContent.toLowerCase() || "";
+        return title.includes(query) || content.includes(query);
       });
+  
+      if (matches.length === 0) {
+        resultsDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+      } else {
+        matches.forEach(article => {
+          const cloned = article.cloneNode(true); // Mantém estrutura e imagem
+          resultsDiv.appendChild(cloned);
+        });
+      }
+    } catch (error) {
+      console.error("Erro ao carregar index.html:", error);
+      resultsDiv.innerHTML = "<p>Erro ao carregar os resultados. Tente novamente mais tarde.</p>";
     }
   });
   
