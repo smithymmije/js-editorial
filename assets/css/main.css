@@ -2197,100 +2197,63 @@ button:disabled,
 }
 
 
-/* ChatBot ajustado para tons claros */
-.chat-box {
-  background: #f4f4f5;
-  border-radius: 10px;
-  padding: 100px 20px;
-  color: #333;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+/* =============================
+   Telas muito grandes (acima de 1680px)
+   ============================= */
+
+/* 1681px até 1920px (Full HD padrão e variantes) */
+@media screen and (min-width: 1681px) and (max-width: 1920px) {
+  body, input, select, textarea {
+    font-size: 12pt;
+  }
+  h1 { font-size: 3.75em; }
+  h2 { font-size: 1.85em; }
+  h3 { font-size: 1.3em; }
+  #main > .inner {
+    max-width: 115em;
+    padding: 0 6em;
+  }
 }
 
-.chat-messages {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 15px;
-  font-size: 1em;
+/* 1921px até 2559px (Full HD+ e monitores maiores) */
+@media screen and (min-width: 1921px) and (max-width: 2559px) {
+  body, input, select, textarea {
+    font-size: 12.25pt;
+  }
+  h1 { font-size: 3.85em; }
+  h2 { font-size: 1.9em; }
+  h3 { font-size: 1.35em; }
+  #main > .inner {
+    max-width: 120em;
+    padding: 0 6.5em;
+  }
 }
 
-/* Estilos das mensagens */
-.bot-message, .user-message {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  max-width: 90%;
-  color: #1a1a1a;
+/* 2560px até 3839px (QHD, 2K, ultrawide) */
+@media screen and (min-width: 2560px) and (max-width: 3839px) {
+  body, input, select, textarea {
+    font-size: 12.5pt;
+  }
+  h1 { font-size: 4em; }
+  h2 { font-size: 2em; }
+  h3 { font-size: 1.45em; }
+  #main > .inner {
+    max-width: 125em;
+    padding: 0 7em;
+  }
 }
 
-.bot-message {
-  background: #e4e4e7;
+/* 3840px ou mais (4K e superiores) */
+@media screen and (min-width: 3840px) {
+  body, input, select, textarea {
+    font-size: 13pt;
+  }
+  h1 { font-size: 4.25em; }
+  h2 { font-size: 2.1em; }
+  h3 { font-size: 1.5em; }
+  #main > .inner {
+    max-width: 130em;
+    padding: 0 8em;
+  }
 }
-
-.user-message {
-  background: #d4d4d8;
-  text-align: right;
-  margin-left: auto;
-}
-
-/* Área de entrada */
-.chat-input-area {
-  display: flex;
-  gap: 10px;
-}
-
-.chat-input-area input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #fff;
-  color: #000;
-}
-
-.chat-input-area button {
-  background: #333;
-  border: none;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-
-/*Menssagem de Kokies*/
-#cookie-banner {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #222;
-  color: #eee;
-  padding: 15px;
-  text-align: center;
-  font-family: sans-serif;
-  z-index: 10000;
-}
-
-#cookie-banner button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  border: none;
-  background: #00c4cc;
-  color: #fff;
-  border-radius: 3px;
-}
-
-
-
-  
-
-
-
-
-
-
-
-
