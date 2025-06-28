@@ -161,6 +161,37 @@ document.querySelector('#search form')?.addEventListener('submit', function (e) 
       window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
     }
   });
+
+  //Carregar a âncora e limpar o hash da URL
+  window.addEventListener("load", () => {
+    const hash = window.location.hash;
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+  
+    // Limpar index.html e hash
+    if (pathname.endsWith("index.html") || hash) {
+      const cleanPath = pathname.replace("index.html", "");
+      history.replaceState(null, null, cleanPath + window.location.search);
+    }
+  
+    // Limpar parâmetros de busca de forma elegante
+    if (pathname.endsWith("search.html")) {
+      const urlParams = new URLSearchParams(search);
+      const searchTerm = urlParams.get("q");
+  
+      if (searchTerm) {
+        // Aqui você pode usar searchTerm para carregar os resultados da busca
+        // Ex: mostrarResultadoBusca(searchTerm);
+  
+        // Limpa a URL após 100ms (dá tempo de usar o valor antes)
+        setTimeout(() => {
+          history.replaceState(null, null, "/busca"); // pode personalizar a URL "mascarada"
+        }, 100);
+      }
+    }
+  });
+  
+  
   
   
   
