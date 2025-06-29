@@ -308,7 +308,32 @@
       			<button class="btn-accept" onclick="aceitarCookies()">Aceitar Tudo</button>
     		</div>
   		</div>
-
+		
+		  <div id="cookieModal">
+			<div class="cookieModalContent">
+			  <h2>Preferências de Cookies</h2>
+			  <form id="cookieForm">
+				<label>
+				  <input type="checkbox" name="necessary" checked disabled>
+				  Cookies necessários (obrigatórios)
+				</label><br><br>
+		  
+				<label>
+				  <input type="checkbox" name="analytics">
+				  Cookies de análise (Google Analytics)
+				</label><br><br>
+		  
+				<label>
+				  <input type="checkbox" name="marketing">
+				  Cookies de marketing (Facebook Pixel, etc.)
+				</label><br><br>
+		  
+				<button type="submit">Salvar preferências</button>
+				<button type="button" id="cancelCookieModal">Cancelar</button>
+			  </form>
+			</div>
+		  </div>
+		  
 			
   
 	</body>
