@@ -49,6 +49,7 @@
   <!-- Manifesto para apps mobile -->
   <link rel="manifest" href="/manifest.json" />
 
+  
   <!-- Estilos e fontes -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet">
@@ -290,6 +291,23 @@
 				document.getElementById('year').textContent = new Date().getFullYear();
 			</script>
 
+		<div id="cookieOverlay"></div>
 
+		<div id="cookieBanner" role="alert">
+    		<div class="cookie-text">
+      			<strong>Este site utiliza cookies</strong>
+      			Utilizamos cookies e tecnologias semelhantes para garantir o funcionamento adequado do site, personalizar conteúdo, oferecer recursos de redes sociais e analisar o nosso tráfego. 
+      			Também compartilhamos informações sobre o seu uso do site com nossos parceiros de mídia social, publicidade e análise, que podem combiná-las com outras informações que você forneceu ou que eles coletaram a partir do uso dos seus serviços.
+      			Você pode aceitar todos os cookies ou gerenciar suas preferências clicando em "Personalizar".
+      			Para saber mais, acesse nosso <a href="privacidade.html">Aviso de Privacidade</a>.
+    		</div>
+    		<div class="cookie-buttons">
+      			<button class="btn-customize" onclick="personalizarCookies()">Personalizar</button>
+      			<button class="btn-accept" onclick="aceitarCookies()">Aceitar Tudo</button>
+    		</div>
+  		</div>
+
+			
+  
 	</body>
 </html>

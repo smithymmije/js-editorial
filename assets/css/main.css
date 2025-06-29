@@ -2197,63 +2197,159 @@ button:disabled,
 }
 
 
+/* Reset global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* =============================
-   Telas muito grandes (acima de 1680px)
-   ============================= */
+/* Aviso de Cookies */
+#cookieBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background-color: #fff;
+  color: #333;
+  font-family: system-ui, sans-serif;
+  font-size: 12px; /* Mantido como no original */
+  line-height: 1.45;
+  padding: 16px 24px;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  max-width: 100%;
+}
 
-/* 1681px até 1920px (Full HD padrão e variantes) */
-@media screen and (min-width: 1681px) and (max-width: 1920px) {
-  body, input, select, textarea {
-    font-size: 12pt;
+/* Texto em destaque */
+#cookieBanner strong {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Links */
+#cookieBanner a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+#cookieBanner a:hover {
+  text-decoration: none;
+}
+
+/* Texto do aviso */
+.cookie-text {
+  flex-grow: 1;
+  margin-right: 0;
+  margin-bottom: 12px;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Botões */
+.cookie-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookie-buttons button {
+  all: unset;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 2px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Estilos dos botões */
+.btn-accept {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000 !important;
+}
+
+.btn-customize {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+}
+
+/* Telas médias: a partir de 600px */
+@media (min-width: 600px) {
+  #cookieBanner {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
   }
-  h1 { font-size: 3.75em; }
-  h2 { font-size: 1.85em; }
-  h3 { font-size: 1.3em; }
-  #main > .inner {
-    max-width: 115em;
-    padding: 0 6em;
+
+  .cookie-text {
+    margin-right: 24px;
+    margin-bottom: 0;
+    text-align: left;
+    max-width: 70%;
+  }
+
+  .cookie-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .cookie-buttons button {
+    width: auto;
+    min-width: 120px;
   }
 }
 
-/* 1921px até 2559px (Full HD+ e monitores maiores) */
-@media screen and (min-width: 1921px) and (max-width: 2559px) {
-  body, input, select, textarea {
-    font-size: 12.25pt;
-  }
-  h1 { font-size: 3.85em; }
-  h2 { font-size: 1.9em; }
-  h3 { font-size: 1.35em; }
-  #main > .inner {
-    max-width: 120em;
-    padding: 0 6.5em;
+/* Telas grandes (>= 1024px) — sem mudar aparência, só refina proporções */
+@media (min-width: 1024px) {
+  .cookie-text {
+    max-width: 75%;
   }
 }
 
-/* 2560px até 3839px (QHD, 2K, ultrawide) */
-@media screen and (min-width: 2560px) and (max-width: 3839px) {
-  body, input, select, textarea {
-    font-size: 12.5pt;
+/* Telas 4K (>= 1920px) — apenas centraliza */
+@media (min-width: 1920px) {
+  #cookieBanner {
+    margin: 0 auto;
+    max-width: 1400px;
   }
-  h1 { font-size: 4em; }
-  h2 { font-size: 2em; }
-  h3 { font-size: 1.45em; }
-  #main > .inner {
-    max-width: 125em;
-    padding: 0 7em;
+
+  .cookie-text {
+    max-width: 80%;
   }
 }
 
-/* 3840px ou mais (4K e superiores) */
-@media screen and (min-width: 3840px) {
-  body, input, select, textarea {
-    font-size: 13pt;
-  }
-  h1 { font-size: 4.25em; }
-  h2 { font-size: 2.1em; }
-  h3 { font-size: 1.5em; }
-  #main > .inner {
-    max-width: 130em;
-    padding: 0 8em;
-  }
+
+#cookieOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* tom escuro com transparência */
+  z-index: 1049; /* abaixo do banner (1050) */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
 }
