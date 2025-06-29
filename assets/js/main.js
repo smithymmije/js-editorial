@@ -192,45 +192,4 @@ document.querySelector('#search form')?.addEventListener('submit', function (e) 
   });
   
 
-  // Cookie Referência ao banner e ao overlay
-  window.addEventListener("DOMContentLoaded", () => {
-    const banner = document.getElementById("cookieBanner");
-    const overlay = document.getElementById("cookieOverlay");
-
-    function aceitarCookies() {
-      localStorage.setItem("cookiesAceitos", "true");
-
-      if (overlay) {
-        overlay.style.opacity = "0";
-        overlay.style.pointerEvents = "none";
-        setTimeout(() => overlay.remove(), 300);
-      }
-
-      if (banner) {
-        banner.style.opacity = "0";
-        setTimeout(() => banner.remove(), 300);
-      }
-    }
-
-    function personalizarCookies() {
-      alert("Aqui você pode implementar um modal de personalização.");
-    }
-
-    // Tornar acessível no HTML inline
-    window.aceitarCookies = aceitarCookies;
-    window.personalizarCookies = personalizarCookies;
-
-    // Exibir ou não o banner
-    const jaAceitou = localStorage.getItem("cookiesAceitos") === "true";
-
-    if (jaAceitou) {
-      if (banner) banner.remove();
-      if (overlay) overlay.remove();
-    } else {
-      if (banner) banner.style.opacity = "1";
-      if (overlay) {
-        overlay.style.opacity = "1";
-        overlay.style.pointerEvents = "auto";
-      }
-    }
-  });
+  
