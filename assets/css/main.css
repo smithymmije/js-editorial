@@ -2210,7 +2210,7 @@ button:disabled,
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1050;
+  z-index: 10050;
   background-color: #fff;
   color: #333;
   font-family: system-ui, sans-serif;
@@ -2348,7 +2348,7 @@ button:disabled,
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* tom escuro com transparência */
-  z-index: 1049; /* abaixo do banner (1050) */
+  z-index: 10049; /* abaixo do banner (1050) */
   opacity: 1;
   transition: opacity 0.3s ease;
   pointer-events: auto;
