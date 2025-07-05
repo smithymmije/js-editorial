@@ -2063,6 +2063,17 @@ button:disabled,
   width: 100%;
 }
 
+/*para o video*/
+#banner .image video {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  display: block;
+  border-radius: inherit; /* se quiser preservar cantos arredondados */
+}
+
+
 /* Layout em orientação retrato: banner empilhado */
 @media screen and (orientation: portrait) {
   #banner {
@@ -2446,3 +2457,4 @@ input[type="checkbox"]:checked::after {
 #cookieModal button#cancelCookieModal:hover {
   background-color: #333; /* cinza médio no hover */
 }
+
